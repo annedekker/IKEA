@@ -142,43 +142,41 @@ namespace IKEA
 
         private void DisableRandomWall()
         {
-            // !!! will loop indefinitely if there are no walls to disable
-            XY loc = new XY(rnd.Next(0, size), rnd.Next(0, size));
-            List<XY> buddies = GetWalledNeighbours(loc);
+            XY cell;
+            List<XY> buddies;
 
-            int failsafe = 0;
-            while (failsafe < 1000)
+            while (true)
             {
-                if (buddies.Count > 1) break;
+                cell = new XY(rnd.Next(size), rnd.Next(size));
+                buddies = GetWalledNeighbours(cell);
 
-                loc = new XY(rnd.Next(0, size), rnd.Next(0, size));
-                buddies = GetWalledNeighbours(loc);
-                failsafe++;
+                if (buddies.Count > 0) break;
             }
 
-            XY buddy = buddies[rnd.Next(0, buddies.Count)];
-            DisableConnectingWalls(loc, buddy);
+            XY buddy = buddies[rnd.Next(buddies.Count)];
+
+            DisableConnectingWalls(cell, buddy);
         }
 
-        private List<XY> GetWalledNeighbours(XY loc)
+        private List<XY> GetWalledNeighbours(XY cell)
         {
             List<XY> buddies = new List<XY>();
 
-            if (loc.X - 1 >= 0)
+            if (cell.X - 1 >= 0)
             {
-                if (field[loc.X, loc.Y].WestWall) buddies.Add(new XY(loc.X - 1, loc.Y));
+                if (field[cell.X, cell.Y].WestWall) buddies.Add(new XY(cell.X - 1, cell.Y));
             }
-            if (loc.Y - 1 >= 0)
+            if (cell.Y - 1 >= 0)
             {
-                if (field[loc.X, loc.Y].NorthWall) buddies.Add(new XY(loc.X, loc.Y - 1));
+                if (field[cell.X, cell.Y].NorthWall) buddies.Add(new XY(cell.X, cell.Y - 1));
             }
-            if (loc.X + 1 < size)
+            if (cell.X + 1 < size)
             {
-                if (field[loc.X, loc.Y].EastWall) buddies.Add(new XY(loc.X + 1, loc.Y));
+                if (field[cell.X, cell.Y].EastWall) buddies.Add(new XY(cell.X + 1, cell.Y));
             }
-            if (loc.Y < size)
+            if (cell.Y + 1 < size)
             {
-                if (field[loc.X, loc.Y].SouthWall) buddies.Add(new XY(loc.X, loc.Y + 1));
+                if (field[cell.X, cell.Y].SouthWall) buddies.Add(new XY(cell.X, cell.Y + 1));
             }
 
             return buddies;

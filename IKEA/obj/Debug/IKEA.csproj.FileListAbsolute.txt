@@ -40,3 +40,7 @@ C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\bin\Debug\resources\items\vase_y.p
 C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\bin\Debug\resources\items\wardrobe_b.png
 C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\bin\Debug\resources\items\wardrobe_y.png
 C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\obj\Debug\IKEA_Content.g.cs
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\items\cafe.png
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\items\exit_b.png
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\items\exit_y.png
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\items\sale.png

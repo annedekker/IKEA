@@ -30,6 +30,15 @@
         <Border Grid.Column="1" Grid.Row="1" Margin="16,12" Background="#cccccc" MaxWidth="360">
             <Viewbox VerticalAlignment="Top">
                 <StackPanel Name="shoppingListPanel">
+                    <Label Content="S H O P P I N G   L I S T" Foreground="#003399" FontWeight="SemiBold" FontSize="15" Margin="4,0,4,4"/>
+                    <DockPanel Margin="8,0">
+                        <Image Source="pack://application:,,,/resources/items/bed_b.png" DockPanel.Dock="Left"/>
+                        <Label Content="B E D" Foreground="#003399" FontWeight="SemiBold" HorizontalContentAlignment="Center"/>
+                    </DockPanel>
+                    <DockPanel Margin="8,0">
+                        <Image Source="pack://application:,,,/resources/items/bench_b.png" DockPanel.Dock="Left"/>
+                        <Label Content="B E N C H" Foreground="#003399" FontWeight="SemiBold" HorizontalContentAlignment="Center"/>
+                    </DockPanel>
                 </StackPanel>
             </Viewbox>
         </Border>
