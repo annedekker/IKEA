@@ -22,7 +22,13 @@ namespace IKEA
     {
         IKEAGame game;
 
-        private SolidColorBrush ikeaBlue = new SolidColorBrush(Color.FromRgb(0, 51, 153));
+        SolidColorBrush ikeaBlue = new SolidColorBrush(Color.FromRgb(0, 51, 153));
+
+        Image playerVisual;
+
+        double cellSize;
+
+        // Init & exit
 
         public GameViewPage()
         {
@@ -31,16 +37,83 @@ namespace IKEA
 
         private void GameViewPage_Loaded(object sender, RoutedEventArgs e)
         {
-            game = new IKEAGame(24);
+            Window window = Window.GetWindow(this);
+
+            game = new IKEAGame((window as MainWindow).MazeSize);
             game.InitGame();
 
             theCanvas.Children.Clear();
+            cellSize = 900.0 / game.MazeSize; // 900.0 = canvas size - borders
+
             DrawMazeWalls();
             DrawMazeLocations();
             DrawShoppingList();
+            InitPlayerVisual();
+
+            game.PlayerMoved += OnPlayerMoved;
+
+            window.KeyDown += GameView_KeyDown;
         }
 
-        // Shopping List
+        private void GameViewPage_Unloaded(object sender, RoutedEventArgs e)
+        {
+            Window window = Window.GetWindow(this);
+            window.KeyDown -= GameView_KeyDown;
+        }
+
+        // Player Input
+        private void GameView_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.A:
+                case Key.Left:
+                    game.MovePlayer(IKEAGame.WNES.West);
+                    playerVisual.Source = new BitmapImage(new Uri("pack://application:,,,/resources/runner_l.png"));
+                    break;
+                case Key.W:
+                case Key.Up:
+                    game.MovePlayer(IKEAGame.WNES.North);
+                    break;
+                case Key.D:
+                case Key.Right:
+                    game.MovePlayer(IKEAGame.WNES.East);
+                    playerVisual.Source = new BitmapImage(new Uri("pack://application:,,,/resources/runner_r.png"));
+                    break;
+                case Key.S:
+                case Key.Down:
+                    game.MovePlayer(IKEAGame.WNES.South);
+                    break;
+            }
+        }
+
+        // Game Input
+
+        private void OnPlayerMoved(object sender, EventArgs e)
+        {
+            UpdatePlayerVisual();
+        }
+
+        // Drawing player
+        private void InitPlayerVisual()
+        {
+            playerVisual = new Image();
+            playerVisual.Source = new BitmapImage(new Uri("pack://application:,,,/resources/runner_r.png"));
+            playerVisual.Width = playerVisual.Height = cellSize - (cellSize / 5);
+            playerVisual.Margin = (new Thickness(
+                50 + cellSize / 10, 50 + cellSize / 10, 0, 0));
+            theCanvas.Children.Add(playerVisual);
+        }
+
+        private void UpdatePlayerVisual()
+        {
+            playerVisual.Margin = new Thickness(
+                50 + game.PlayerLoc.X * cellSize + cellSize / 10,
+                50 + game.PlayerLoc.Y * cellSize + cellSize / 10,
+                0, 0);
+        }
+
+        // Drawing Shopping List
 
         private void DrawShoppingList()
         {
@@ -132,7 +205,6 @@ namespace IKEA
 
         private void DrawMazeWalls()
         {
-            double cellSize = 900.0 / game.MazeSize; // 900.0 = canvas size - borders
             double wallSize = cellSize / 10;
 
             // Borders
@@ -237,8 +309,6 @@ namespace IKEA
         
         private void DrawMazeLocations()
         {
-            double cellSize = 900.0 / game.MazeSize;
-
             foreach (var item in game.PointsOfInterest)
             {
                 Image image = new Image();
@@ -316,5 +386,7 @@ namespace IKEA
 
             return newstr.ToUpper();
         }
+
+        
     }
 }

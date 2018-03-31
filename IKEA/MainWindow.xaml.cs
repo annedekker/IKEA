@@ -20,9 +20,12 @@ namespace IKEA
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int MazeSize { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            MazeSize = 12;
         }
     }
 }

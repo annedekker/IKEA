@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:IKEA"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="GameViewPage" Background="#222222" Loaded="GameViewPage_Loaded">
+      Title="GameViewPage" Background="#222222" Loaded="GameViewPage_Loaded" Unloaded="GameViewPage_Unloaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

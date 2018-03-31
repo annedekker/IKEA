@@ -18,6 +18,8 @@ namespace IKEA
             Plant, Sofa, Table, Vase, Wardrobe
         }
 
+        public enum WNES { West, North, East, South };
+        
         public Maze Maze { get { return maze; } }
         public Cell[,] Field { get { return maze.Field; } }
         public int MazeSize { get { return maze.Size; } }
@@ -29,7 +31,20 @@ namespace IKEA
         public List<Item> ShoppingList { get { return shoppingList; } }
         List<Item> shoppingList;
 
+        public XY PlayerLoc { get { return playerLoc; } }
+        XY playerLoc;
+
+        // Events
+
+        public event EventHandler PlayerMoved;
+
+        protected virtual void OnPlayerMoved()
+        {
+            if (PlayerMoved != null) PlayerMoved(this, new EventArgs());
+        }
+
         // Init
+
         public IKEAGame(int mazeSize)
         {
             maze = new Maze(mazeSize);
@@ -40,6 +55,8 @@ namespace IKEA
             maze.BuildMaze();
             BuildPointsOfInterest();
             BuildShoppingList();
+
+            playerLoc = new XY(0, 0);
         }
 
         private void BuildPointsOfInterest()
@@ -88,6 +105,36 @@ namespace IKEA
                 shoppingList.Add(item);
                 count--;
             }
+        }
+
+        // Player Input
+
+        public void MovePlayer(WNES direction)
+        {
+            switch (direction)
+            {
+                case WNES.West:
+                    if (Field[playerLoc.X, playerLoc.Y].WestWall) return;
+
+                    PlayerLoc.X--;
+                    break;
+                case WNES.North:
+                    if (Field[playerLoc.X, playerLoc.Y].NorthWall) return;
+
+                    playerLoc.Y--;
+                    break;
+                case WNES.East:
+                    if (Field[playerLoc.X, playerLoc.Y].EastWall) return;
+
+                    playerLoc.X++;
+                    break;
+                case WNES.South:
+                    if (Field[playerLoc.X, playerLoc.Y].SouthWall) return;
+
+                    playerLoc.Y++;
+                    break;
+            }
+            OnPlayerMoved();
         }
     }
 }

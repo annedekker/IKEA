@@ -189,6 +189,8 @@
     <Content Include="resources\items\wardrobe_y.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="resources\runner_l.png" />
+    <Resource Include="resources\runner_r.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
