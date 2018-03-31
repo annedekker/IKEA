@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace IKEA
 {
@@ -25,6 +26,12 @@ namespace IKEA
         SolidColorBrush ikeaBlue = new SolidColorBrush(Color.FromRgb(0, 51, 153));
 
         Image playerVisual;
+        Image saleVisual;
+
+        Label scoreLabel;
+        Label messageLabel;
+        DispatcherTimer scoreLabelTimer;
+        int scoreLabelCountdown;
 
         double cellSize;
 
@@ -42,6 +49,7 @@ namespace IKEA
             game = new IKEAGame((window as MainWindow).MazeSize);
             game.InitGame();
 
+            playerScoreLabel.Content = game.PlayerScore.ToString();
             theCanvas.Children.Clear();
             cellSize = 900.0 / game.MazeSize; // 900.0 = canvas size - borders
 
@@ -49,19 +57,20 @@ namespace IKEA
             DrawMazeLocations();
             DrawShoppingList();
             InitPlayerVisual();
+            InitScoreLabels();
 
             game.PlayerMoved += OnPlayerMoved;
+            game.ScoreChanged += OnScoreChanged;
+            game.SaleFound += OnSaleFound;
+            game.ItemShopped += OnItemShopped;
+            game.ScoreDecayed += OnScoreDecayed;
+            game.ExitReached += OnExitReached;
 
             window.KeyDown += GameView_KeyDown;
         }
 
-        private void GameViewPage_Unloaded(object sender, RoutedEventArgs e)
-        {
-            Window window = Window.GetWindow(this);
-            window.KeyDown -= GameView_KeyDown;
-        }
-
         // Player Input
+
         private void GameView_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.Key)
@@ -94,7 +103,100 @@ namespace IKEA
             UpdatePlayerVisual();
         }
 
+        private void OnScoreChanged(object sender, ScoreEventArgs e)
+        {
+            playerScoreLabel.Content = game.PlayerScore.ToString();
+
+            theCanvas.Children.Remove(scoreLabel);
+            theCanvas.Children.Remove(messageLabel);
+
+            scoreLabelCountdown = 5;
+
+            scoreLabel.Content = e.Amount;
+            messageLabel.Content = e.Message;
+            if (e.Bonus) scoreLabel.Foreground = messageLabel.Foreground = Brushes.ForestGreen;
+            else scoreLabel.Foreground = messageLabel.Foreground = Brushes.Firebrick;
+
+            if (game.PlayerLoc.Y > game.MazeSize / 2)
+            {
+                scoreLabel.Margin = new Thickness(
+                    50 + game.PlayerLoc.X * cellSize + cellSize / 2 - 100,
+                    50 + game.PlayerLoc.Y * cellSize - cellSize, 0, 0);
+                messageLabel.Margin = new Thickness(
+                    50 + game.PlayerLoc.X * cellSize + cellSize / 2 - 100,
+                    50 + game.PlayerLoc.Y * cellSize - cellSize - 32, 0, 0);
+            }
+            else
+            {
+                scoreLabel.Margin = new Thickness(
+                    50 + game.PlayerLoc.X * cellSize + cellSize / 2 - 100,
+                    50 + game.PlayerLoc.Y * cellSize + cellSize, 0, 0);
+                messageLabel.Margin = new Thickness(
+                    50 + game.PlayerLoc.X * cellSize + cellSize / 2 - 100,
+                    50 + game.PlayerLoc.Y * cellSize + cellSize + 32, 0, 0);
+            }
+
+            theCanvas.Children.Add(scoreLabel);
+            if (e.Message != "") theCanvas.Children.Add(messageLabel);
+            scoreLabelTimer.Start();
+        }
+
+        private void OnSaleFound(object sender, EventArgs e)
+        {
+            theCanvas.Children.Remove(saleVisual);
+        }
+
+        private void OnItemShopped(object sender, EventArgs e)
+        {
+            DrawShoppingList();
+        }
+
+        private void OnExitReached(object sender, EventArgs e)
+        {
+            scoreLabelTimer.Stop();
+            game.Stop();
+
+            Window window = Window.GetWindow(this);
+            window.KeyDown -= GameView_KeyDown;
+            (window as MainWindow).LastGameScore = game.PlayerScore;
+        }
+
+        private void OnScoreDecayed(object sender, EventArgs e)
+        {
+            playerScoreLabel.Dispatcher.Invoke(() =>
+            { playerScoreLabel.Content = game.PlayerScore.ToString(); });
+        }
+
+        // Score Label
+        private void InitScoreLabels()
+        {
+            scoreLabel = new Label();
+            messageLabel = new Label();
+            scoreLabel.Width = messageLabel.Width = 200;
+            scoreLabel.HorizontalContentAlignment = messageLabel.HorizontalContentAlignment = HorizontalAlignment.Center;
+            scoreLabel.FontSize = messageLabel.FontSize = 22;
+            scoreLabel.FontWeight = messageLabel.FontWeight = FontWeights.Bold;
+
+            scoreLabelTimer = new DispatcherTimer();
+            scoreLabelTimer.Interval = new TimeSpan(0, 0, 1);
+            scoreLabelTimer.Tick += ScoreLabelTimer_Tick;
+        }
+
+        private void ScoreLabelTimer_Tick(object sender, EventArgs e)
+        {
+            scoreLabelCountdown--;
+
+            if (scoreLabelCountdown <= 0)
+            {
+                theCanvas.Children.Remove(scoreLabel);
+                theCanvas.Children.Remove(messageLabel);
+
+                scoreLabelTimer.Stop();
+            }
+        }
+
         // Drawing player
+
         private void InitPlayerVisual()
         {
             playerVisual = new Image();
@@ -282,7 +384,7 @@ namespace IKEA
                             start = stop = -1;
                         }
                     }
-                    if (y == game.MazeSize - 1 && start != -1)
+                    if (x == game.MazeSize - 1 && start != -1)
                     {
                         DrawWall(
                                 50 + start * cellSize - (wallSize / 2),
@@ -309,8 +411,23 @@ namespace IKEA
         
         private void DrawMazeLocations()
         {
+            if (game.PointsOfInterest.Any(i => i.Key == IKEAGame.Item.Sale))
+            {
+                saleVisual = new Image();
+                saleVisual.Width = saleVisual.Height = cellSize - cellSize / 5;
+                saleVisual.Source = new BitmapImage(new Uri("pack://application:,,,/resources/items/sale.png"));
+                saleVisual.Margin = new Thickness(
+                    50 + game.PointsOfInterest[IKEAGame.Item.Sale].X * cellSize + cellSize / 10,
+                    50 + game.PointsOfInterest[IKEAGame.Item.Sale].Y * cellSize + cellSize / 10,
+                    0, 0);
+
+                theCanvas.Children.Add(saleVisual);
+            }
+
             foreach (var item in game.PointsOfInterest)
             {
+                if (item.Key == IKEAGame.Item.Sale) continue;
+
                 Image image = new Image();
                 image.Width = image.Height = cellSize - cellSize / 5;
 
@@ -321,9 +438,6 @@ namespace IKEA
                         break;
                     case IKEAGame.Item.Cafe:
                         image.Source = new BitmapImage(new Uri("pack://application:,,,/resources/items/cafe.png"));
-                        break;
-                    case IKEAGame.Item.Sale:
-                        image.Source = new BitmapImage(new Uri("pack://application:,,,/resources/items/sale.png"));
                         break;
                     case IKEAGame.Item.Bed:
                         image.Source = new BitmapImage(new Uri("pack://application:,,,/resources/items/bed_b.png"));
@@ -386,7 +500,5 @@ namespace IKEA
 
             return newstr.ToUpper();
         }
-
-        
     }
 }

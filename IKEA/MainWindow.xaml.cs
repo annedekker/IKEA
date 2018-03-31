@@ -21,6 +21,7 @@ namespace IKEA
     public partial class MainWindow : Window
     {
         public int MazeSize { get; set; }
+        public int LastGameScore { get; set; }
 
         public MainWindow()
         {
