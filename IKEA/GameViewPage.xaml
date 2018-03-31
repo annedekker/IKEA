@@ -1,0 +1,39 @@
+﻿<Page x:Class="IKEA.GameViewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IKEA"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GameViewPage" Background="#222222" Loaded="GameViewPage_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Viewbox Margin="16" Grid.RowSpan="3">
+            <Canvas Name="theCanvas" Width="1000" Height="1000" Background="#cccccc">
+                <Label Name="loadingLabel" Content="L O A D I N G . . ." Width="1000" Height="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                       FontSize="64" FontWeight="SemiBold" Foreground="#003399"/>
+            </Canvas>
+        </Viewbox>
+
+        <Label Name="playerScoreLabel" Grid.Column="1" Content="00000" Foreground="#ffcc00" Margin="16,16,16,8" FontSize="28" FontWeight="SemiBold" HorizontalContentAlignment="Center"/>
+
+        <Border Grid.Column="1" Grid.Row="1" Margin="16,12" Background="#cccccc" MaxWidth="360">
+            <Viewbox VerticalAlignment="Top">
+                <StackPanel Name="shoppingListPanel">
+                </StackPanel>
+            </Viewbox>
+        </Border>
+        
+        <Button Content="G I V E   U P" Grid.Column="1" Grid.Row="2" Style="{StaticResource IKEAButtonStyle}" Margin="16,8,16,16" MaxWidth="360"/>
+    </Grid>
+</Page>
