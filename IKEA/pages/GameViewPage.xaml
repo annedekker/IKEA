@@ -43,6 +43,6 @@
             </Viewbox>
         </Border>
         
-        <Button Content="G I V E   U P" Grid.Column="1" Grid.Row="2" Style="{StaticResource IKEAButtonStyle}" Margin="16,8,16,16" MaxWidth="360"/>
+        <Button Content="G I V E   U P" Grid.Column="1" Grid.Row="2" Style="{StaticResource IKEAButtonStyle}" Margin="16,8,16,16" MaxWidth="360" Click="GiveUp_Click"/>
     </Grid>
 </Page>

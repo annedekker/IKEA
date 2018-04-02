@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\App.xaml
-2-756181773
-281195264296
-14-1630073913
+4815681789
+29362267271
+18-1137309658
 13738642453
-GameViewPage.xaml;MainWindow.xaml;
+pages\GameViewPage.xaml;pages\GameWonPage.xaml;pages\MainMenuPage.xaml;MainWindow.xaml;
 
 False
 

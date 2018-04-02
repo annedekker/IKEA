@@ -2,13 +2,11 @@ C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\bin\Debug\IKEA.exe.config
 C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\bin\Debug\IKEA.exe
 C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\bin\Debug\IKEA.pdb
 C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\obj\Debug\IKEA.csprojResolveAssemblyReference.cache
-C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\obj\Debug\GameViewPage.g.cs
 C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\obj\Debug\MainWindow.g.cs
 C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\obj\Debug\App.g.cs
 C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\obj\Debug\IKEA_MarkupCompile.cache
 C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\obj\Debug\IKEA_MarkupCompile.lref
 C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\obj\Debug\App.baml
-C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\obj\Debug\GameViewPage.baml
 C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\obj\Debug\MainWindow.baml
 C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\obj\Debug\IKEA.g.resources
 C:\Users\Gebruiker\Documents\Github\IKEA\IKEA\obj\Debug\IKEA.Properties.Resources.resources
@@ -44,3 +42,10 @@ C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\items\cafe.png
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\items\exit_b.png
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\items\exit_y.png
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\items\sale.png
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\GameViewPage.g.cs
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\GameWonPage.g.cs
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\MainMenuPage.g.cs
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\GameViewPage.baml
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\GameWonPage.baml
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\MainMenuPage.baml
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\logo.png

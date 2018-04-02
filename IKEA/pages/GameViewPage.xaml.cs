@@ -69,12 +69,30 @@ namespace IKEA
             window.KeyDown += GameView_KeyDown;
         }
 
+        private void Quit()
+        {
+            scoreLabelTimer.Stop();
+            game.Stop();
+
+            Window window = Window.GetWindow(this);
+            window.KeyDown -= GameView_KeyDown;
+            (window as MainWindow).SetPage(MainWindow.Page.MainMenu);
+        }
+
         // Player Input
+
+        private void GiveUp_Click(object sender, RoutedEventArgs e)
+        {
+            Quit();
+        }
 
         private void GameView_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.Key)
             {
+                case Key.Escape:
+                    Quit();
+                    break;
                 case Key.A:
                 case Key.Left:
                     game.MovePlayer(IKEAGame.WNES.West);
@@ -156,9 +174,11 @@ namespace IKEA
             scoreLabelTimer.Stop();
             game.Stop();
 
-            Window window = Window.GetWindow(this);
+            MainWindow window = (MainWindow)Window.GetWindow(this);
             window.KeyDown -= GameView_KeyDown;
-            (window as MainWindow).LastGameScore = game.PlayerScore;
+            window.LastGameScore = game.PlayerScore;
+            window.LastGameTime = game.TimeTaken;
+            window.SetPage(MainWindow.Page.GameWon);
         }
 
         private void OnScoreDecayed(object sender, EventArgs e)
@@ -500,5 +520,7 @@ namespace IKEA
 
             return newstr.ToUpper();
         }
+
+        
     }
 }

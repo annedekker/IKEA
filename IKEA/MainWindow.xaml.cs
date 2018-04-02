@@ -20,13 +20,46 @@ namespace IKEA
     /// </summary>
     public partial class MainWindow : Window
     {
+        public enum Page
+        {
+            MainMenu, GameView, GameWon
+        };
+
+        public Highscores HighScores = new Highscores();
+
         public int MazeSize { get; set; }
         public int LastGameScore { get; set; }
+        public int LastGameTime { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
             MazeSize = 12;
+            LastGameScore = 12;
+
+            SetPage(Page.MainMenu);
         }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            (sender as Window).WindowState = WindowState.Maximized;
+        }
+
+        public void SetPage(Page page)
+        {
+            switch (page)
+            {
+                case Page.MainMenu:
+                    mainFrame.Source = new Uri("pack://application:,,,/pages/MainMenuPage.xaml");
+                    break;
+                case Page.GameView:
+                    mainFrame.Source = new Uri("pack://application:,,,/pages/GameViewPage.xaml");
+                    break;
+                case Page.GameWon:
+                    mainFrame.Source = new Uri("pack://application:,,,/pages/GameWonPage.xaml");
+                    break;
+            }
+        }
+        
     }
 }

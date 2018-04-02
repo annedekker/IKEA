@@ -24,6 +24,8 @@ namespace IKEA
     {
         private Random rnd = new Random();
         private Timer timer = new Timer();
+        public int TimeTaken { get { return time; } }
+        int time = 0;
 
         public const int ItemCount = 15;
         public enum Item
@@ -280,6 +282,7 @@ namespace IKEA
                 playerScore -= scoreDecay;
                 OnScoreDecayed();
             }
+            time++;
         }
     }
 }
