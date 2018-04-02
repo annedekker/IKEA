@@ -36,6 +36,8 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/items/vase_y.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/items/wardrobe_b.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/items/wardrobe_y.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/leftarrowsymbol.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/logo.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/rightarrowsymbol.png")]
 
 

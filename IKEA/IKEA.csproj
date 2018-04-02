@@ -63,6 +63,9 @@
     <Compile Include="pages\HighScorePage.xaml.cs">
       <DependentUpon>HighScorePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="pages\HowToPage.xaml.cs">
+      <DependentUpon>HowToPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pages\MainMenuPage.xaml.cs">
       <DependentUpon>MainMenuPage.xaml</DependentUpon>
     </Compile>
@@ -78,6 +81,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pages\HighScorePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\HowToPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -212,7 +219,13 @@
     <Content Include="resources\items\wardrobe_y.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="resources\leftArrowSymbol.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="resources\logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\rightArrowSymbol.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="resources\runner_l.png" />

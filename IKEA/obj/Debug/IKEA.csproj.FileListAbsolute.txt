@@ -51,3 +51,7 @@ C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\MainMenuPage.baml
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\logo.png
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\HighScorePage.g.cs
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\HighScorePage.baml
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\leftArrowSymbol.png
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\rightArrowSymbol.png
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\HowToPage.g.cs
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\HowToPage.baml

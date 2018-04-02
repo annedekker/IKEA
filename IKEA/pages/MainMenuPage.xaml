@@ -22,7 +22,7 @@
         <Button Content="P L A Y" Grid.Row="1" Style="{StaticResource IKEAButtonStyle}" Margin="8" Width="512" MaxHeight="64" Click="Play_Click"/>
         <Button Content="H I G H S C O R E S" Grid.Row="2" Style="{StaticResource IKEAButtonStyle}" Margin="8" Width="512" MaxHeight="64" Click="HighScores_Click"/>
         <Button Content="S E T T I N G S" Grid.Row="3" Style="{StaticResource IKEAButtonStyle}" Margin="8" Width="512" MaxHeight="64"/>
-        <Button Content="H O W   T O" Grid.Row="4" Style="{StaticResource IKEAButtonStyle}" Margin="8" Width="512" MaxHeight="64"/>
+        <Button Content="H O W   T O" Grid.Row="4" Style="{StaticResource IKEAButtonStyle}" Margin="8" Width="512" MaxHeight="64" Click="HowTo_Click"/>
         <Button Content="E X I T" Grid.Row="5" Style="{StaticResource IKEAButtonStyle}" Margin="8" Width="512" MaxHeight="64" Click="Exit_Click"/>
     </Grid>
 </Page>

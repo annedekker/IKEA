@@ -22,7 +22,7 @@ namespace IKEA
     {
         public enum Page
         {
-            MainMenu, GameView, GameWon, HighScores
+            MainMenu, GameView, GameWon, HighScores, HowTo
         };
 
         public Highscores HighScores = new Highscores();
@@ -60,6 +60,9 @@ namespace IKEA
                     break;
                 case Page.HighScores:
                     mainFrame.Source = new Uri("pack://application:,,,/pages/HighScorePage.xaml");
+                    break;
+                case Page.HowTo:
+                    mainFrame.Source = new Uri("pack://application:,,,/pages/HowToPage.xaml");
                     break;
             }
         }
