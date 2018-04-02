@@ -55,3 +55,5 @@ C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\leftArrowSymbo
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\rightArrowSymbol.png
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\HowToPage.g.cs
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\HowToPage.baml
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\SettingsPage.g.cs
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\SettingsPage.baml

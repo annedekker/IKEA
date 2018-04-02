@@ -38,7 +38,7 @@
             </Button>
         </StackPanel>
 
-        <Button Content="M A I N   M E N U" Grid.Row="2" Style="{StaticResource IKEAButtonStyle}" Height="44" Margin="8" Click="MainMenu_Click"/>
-        <Button Content="N E W   G A M E" Grid.Row="3" Style="{StaticResource IKEAButtonStyle}" Height="44" Margin="8" Click="NewGame_Click"/>
+        <Button Content="M A I N   M E N U" Grid.Row="2" Style="{StaticResource IKEAButtonStyle}" Width="512" Height="40" Margin="8" Click="MainMenu_Click"/>
+        <Button Content="N E W   G A M E" Grid.Row="3" Style="{StaticResource IKEAButtonStyle}" Width="512" Height="40" Margin="8" Click="NewGame_Click"/>
     </Grid>
 </Page>

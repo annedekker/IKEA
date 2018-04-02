@@ -48,5 +48,11 @@ namespace IKEA
             MainWindow wdw = (MainWindow)Window.GetWindow(this);
             wdw.SetPage(MainWindow.Page.HowTo);
         }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow wdw = (MainWindow)Window.GetWindow(this);
+            wdw.SetPage(MainWindow.Page.Settings);
+        }
     }
 }
