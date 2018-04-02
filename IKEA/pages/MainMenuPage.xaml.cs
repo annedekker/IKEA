@@ -36,5 +36,11 @@ namespace IKEA
             MainWindow wdw = (MainWindow)Window.GetWindow(this);
             wdw.Close();
         }
+
+        private void HighScores_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow wdw = (MainWindow)Window.GetWindow(this);
+            wdw.SetPage(MainWindow.Page.HighScores);
+        }
     }
 }

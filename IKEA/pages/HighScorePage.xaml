@@ -1,0 +1,47 @@
+﻿<Page x:Class="IKEA.pages.HighScorePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IKEA.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Background="#222222"
+      Title="HighScorePage" Loaded="HighScores_Loaded">
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="H I G H S C O R E S" Grid.ColumnSpan="2" Foreground="#ffcc00" FontSize="26" HorizontalContentAlignment="Center" FontWeight="SemiBold"/>
+
+        <ScrollViewer Grid.Row="1" Grid.ColumnSpan="2" Margin="8">
+            <Grid Name="highScoreGrid" Background="#cccccc">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="48"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="64"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="N A M E" Grid.Column="1" HorizontalContentAlignment="Center" Foreground="#003399" FontSize="16" FontWeight="SemiBold"/>
+                <Label Content="S C O R E" Grid.Column="2" HorizontalContentAlignment="Center" Foreground="#003399" FontSize="16" FontWeight="SemiBold"/>
+                <Label Content="M A Z E S I Z E" Grid.Column="3" HorizontalContentAlignment="Center" Foreground="#003399" FontSize="16" FontWeight="SemiBold"/>
+                <Label Content="T I M E" Grid.Column="4" HorizontalContentAlignment="Center" Foreground="#003399" FontSize="16" FontWeight="SemiBold"/>
+            </Grid>
+        </ScrollViewer>
+        
+        <Button Content="M A I N   M E N U" Grid.Row="2" Height="44" Style="{StaticResource IKEAButtonStyle}" Margin="8" Click="MainMenu_Click"/>
+        <Button Content="N E W   G A M E" Grid.Row="2" Grid.Column="1" Height="44" Style="{StaticResource IKEAButtonStyle}" Margin="8" Click="NewGame_Click"/>
+    </Grid>
+</Page>

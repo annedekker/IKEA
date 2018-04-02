@@ -49,3 +49,5 @@ C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\GameViewPage.baml
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\GameWonPage.baml
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\MainMenuPage.baml
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\logo.png
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\HighScorePage.g.cs
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\HighScorePage.baml
