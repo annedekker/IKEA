@@ -93,6 +93,7 @@ namespace IKEA
                 // Rank
                 Label lbl = new Label();
                 lbl.Foreground = ikeaBlue;
+                lbl.FontSize = 14;
                 lbl.HorizontalContentAlignment = HorizontalAlignment.Center;
                 lbl.Content = (i + 1).ToString();
                 Grid.SetColumn(lbl, 0);
@@ -101,6 +102,7 @@ namespace IKEA
                 // Name
                 lbl = new Label();
                 lbl.Foreground = ikeaBlue;
+                lbl.FontSize = 14;
                 lbl.HorizontalContentAlignment = HorizontalAlignment.Center;
                 lbl.Content = scores[i].PlayerName;
                 Grid.SetColumn(lbl, 1);
@@ -109,6 +111,7 @@ namespace IKEA
                 // Score
                 lbl = new Label();
                 lbl.Foreground = ikeaBlue;
+                lbl.FontSize = 14;
                 lbl.HorizontalContentAlignment = HorizontalAlignment.Center;
                 lbl.Content = scores[i].PlayerScore.ToString();
                 Grid.SetColumn(lbl, 2);
@@ -117,6 +120,7 @@ namespace IKEA
                 // Size
                 lbl = new Label();
                 lbl.Foreground = ikeaBlue;
+                lbl.FontSize = 14;
                 lbl.HorizontalContentAlignment = HorizontalAlignment.Center;
                 lbl.Content = scores[i].MazeSize;
                 Grid.SetColumn(lbl, 3);
@@ -125,6 +129,7 @@ namespace IKEA
                 // Time
                 lbl = new Label();
                 lbl.Foreground = ikeaBlue;
+                lbl.FontSize = 14;
                 lbl.HorizontalContentAlignment = HorizontalAlignment.Center;
                 lbl.Content = Timeify(scores[i].TimeTaken);
                 Grid.SetColumn(lbl, 4);

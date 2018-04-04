@@ -34,17 +34,17 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="64"/>
                     <RowDefinition Height="32"/>
                     <RowDefinition Height="32"/>
                 </Grid.RowDefinitions>
 
                 <Label Content="H I G H S C O R E S" Grid.ColumnSpan="5" Foreground="#003399" FontSize="28" FontWeight="SemiBold" HorizontalContentAlignment="Center"/>
 
-                <Label Content="Name" Grid.Row="1" Grid.Column="1" HorizontalContentAlignment="Center" Foreground="#003399"/>
-                <Label Content="Score" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Center" Foreground="#003399"/>
-                <Label Content="Maze Size" Grid.Row="1" Grid.Column="3" HorizontalContentAlignment="Center" Foreground="#003399"/>
-                <Label Content="Time" Grid.Row="1" Grid.Column="4" HorizontalContentAlignment="Center" Foreground="#003399"/>
+                <Label Content="N A M E" Grid.Row="1" Grid.Column="1" HorizontalContentAlignment="Center" Foreground="#003399" FontSize="16" FontWeight="SemiBold"/>
+                <Label Content="S C O R E" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Center" Foreground="#003399" FontSize="16" FontWeight="SemiBold"/>
+                <Label Content="S I Z E" Grid.Row="1" Grid.Column="3" HorizontalContentAlignment="Center" Foreground="#003399" FontSize="16" FontWeight="SemiBold"/>
+                <Label Content="T I M E" Grid.Row="1" Grid.Column="4" HorizontalContentAlignment="Center" Foreground="#003399" FontSize="16" FontWeight="SemiBold"/>
             </Grid>
         </ScrollViewer>
 

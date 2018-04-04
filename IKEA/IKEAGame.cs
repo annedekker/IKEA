@@ -206,7 +206,7 @@ namespace IKEA
                     if (visitedCafe)
                     {
                         playerScore -= 555;
-                        OnScoreChanged(new ScoreEventArgs(555, false, "T I M E   D R A I N"));
+                        OnScoreChanged(new ScoreEventArgs(555, false, "T O D D L E R S !"));
                     }
                     else
                     {
@@ -219,7 +219,7 @@ namespace IKEA
                         else
                         {
                             playerScore -= 555;
-                            OnScoreChanged(new ScoreEventArgs(555, false, "T I M E   D R A I N"));
+                            OnScoreChanged(new ScoreEventArgs(555, false, "T O D D L E R S !"));
                         }
                     }
                     break;
