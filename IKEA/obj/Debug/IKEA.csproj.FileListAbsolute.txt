@@ -57,3 +57,8 @@ C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\HowToPage.g.cs
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\HowToPage.baml
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\SettingsPage.g.cs
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\pages\SettingsPage.baml
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\IKEA.exe.manifest
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\IKEA.application
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\IKEA.exe.manifest
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\IKEA.application
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\icon.ico

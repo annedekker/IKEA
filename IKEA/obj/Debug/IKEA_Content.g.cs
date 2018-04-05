@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/icon.ico")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/items/bed_b.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/items/bed_y.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/items/bench_b.png")]
