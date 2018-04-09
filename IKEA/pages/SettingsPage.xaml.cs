@@ -85,6 +85,8 @@ namespace IKEA.pages
                 mazeSizeUpButton.IsEnabled = false;
             }
 
+            mazeSizeTextbox.Text = value.ToString();
+
             try
             {
                 if (value >= 8) wdw.MazeSize = value;

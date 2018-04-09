@@ -62,3 +62,4 @@ C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\IKEA.application
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\IKEA.exe.manifest
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\IKEA.application
 C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\bin\Debug\resources\icon.ico
+C:\Users\Gebruiker\Documents\GitHub\IKEA\IKEA\obj\Debug\IKEA.csproj.CoreCompileInputs.cache

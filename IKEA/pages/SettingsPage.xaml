@@ -22,8 +22,8 @@
             <StackPanel>
                 <!-- Maze Size -->
                 <DockPanel>
-                    <Button Name="mazeSizeUpButton" Content="+" DockPanel.Dock="Right" Style="{StaticResource IKEAButtonStyle}" Width="40" Height="40"/>
-                    <Button Name="mazeSizeDownButton" Content="-" DockPanel.Dock="Right" Style="{StaticResource IKEAButtonStyle}" Width="40" Height="40" Margin="4,0"/>
+                    <Button Name="mazeSizeUpButton" Content="+" DockPanel.Dock="Right" Style="{StaticResource IKEAButtonStyle}" Width="40" Height="40" Click="MazeSizeUpDown_Click"/>
+                    <Button Name="mazeSizeDownButton" Content="-" DockPanel.Dock="Right" Style="{StaticResource IKEAButtonStyle}" Width="40" Height="40" Margin="4,0" Click="MazeSizeUpDown_Click"/>
                     <TextBox Name="mazeSizeTextbox" DockPanel.Dock="Right" Margin="4,0" Text="12" Width="48" Foreground="#ffcc00" Background="#003399" BorderBrush="#ffcc00"
                              FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="MazeSizeTextbox_Changed"/>
                     <Label Content="M A Z E   S I Z E" Foreground="#ffcc00" FontSize="14" VerticalContentAlignment="Center"/>
